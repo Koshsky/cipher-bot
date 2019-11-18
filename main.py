@@ -55,9 +55,9 @@ while True:
                   
            else:
                send(module.caeser_help, id)
-        """
-        vigenere
-        """
+                
+                
+                
         else:
            send(module.send_help, id)
                 
