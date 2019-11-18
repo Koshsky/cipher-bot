@@ -41,9 +41,7 @@ while True:
                 send(module.help_send, id)
         """
         самый сок
-        """
-        """
-        caeser
+        цезарь 
         """
         elif body[0] in module.caeser:
            if len(body) >  3:
