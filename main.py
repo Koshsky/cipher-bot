@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 import secret
-import rendom
+import random
 import caeser
 
 vk = vk_api.VkApi(token=secret.TOKEN)
