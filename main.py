@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 import secret
+import module
 import vk_api
 import random
 import caesar
@@ -20,9 +21,7 @@ while True:
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
         body = list(messages['items'][0]['last_message']['text'].lower())
-        """
-        помощь
-        """
+        
         if body[0] in module.help:
             if len(body) > 1:
             
