@@ -9,9 +9,9 @@ vk = vk_api.VkApi(token=secret.TOKEN)
 def get_random_id():
     return random.getrandbits(31) * random.choice([-1, 1])
 def send(text, id):
-"""
-отправить сообщение
-"""
+    """
+    отправить сообщение
+    """
     vk.method('messages.send',  {'peer_id' : id,'message' : text, 'random_id' : get_random_id()})
     
 while True:
@@ -19,9 +19,9 @@ while True:
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
         body = list(messages['items'][0]['last_message']['text'].lower())
- """
-помощь
-"""
+        """
+        помощь
+        """
         if body[0] in module.help:
             if len(body) > 1:
             
@@ -39,11 +39,11 @@ while True:
                     
             else:
                 send(module.help_send, id)
-"""
-самый сок
-"""
-"""
-caeser
+       """
+       самый сок
+       """
+       """
+       caeser
        """
        elif body[0] in module.caeser:
           if len(body) >  3:
@@ -59,9 +59,9 @@ caeser
                   
           else:
               send(module.caeser_help, id)
-"""
-vigenere
-"""
+       """
+       vigenere
+       """
        else:
           send(module.send_help, id)
                 
