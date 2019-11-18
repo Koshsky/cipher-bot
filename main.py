@@ -39,29 +39,29 @@ while True:
                     
             else:
                 send(module.help_send, id)
-       """
-       самый сок
-       """
-       """
-       caeser
-       """
-       elif body[0] in module.caeser:
-          if len(body) >  3:
+        """
+        самый сок
+        """
+        """
+        caeser
+        """
+        elif body[0] in module.caeser:
+           if len(body) >  3:
           
-              if body[1] in module.cipher:
-                  send(caeser.cipher(body[3:], body[2]), id)
+               if body[1] in module.cipher:
+                   send(caeser.cipher(body[3:], body[2]), id)
                   
-              elif body[1] in caeser.decipher:
-                  send(caeser.decipher(body[3:], body[2]), id)
+               elif body[1] in caeser.decipher:
+                   send(caeser.decipher(body[3:], body[2]), id)
                   
-              else:
-                  send(module.caeser_help, id)
+               else:
+                   send(module.caeser_help, id)
                   
-          else:
-              send(module.caeser_help, id)
-       """
-       vigenere
-       """
-       else:
-          send(module.send_help, id)
+           else:
+               send(module.caeser_help, id)
+        """
+        vigenere
+        """
+        else:
+           send(module.send_help, id)
                 
