@@ -63,5 +63,5 @@ caeser
 vigenere
 """
        else:
-          send('че', id)
+          send(module.send_help, id)
                 
