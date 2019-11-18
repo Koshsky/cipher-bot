@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import secret
 import random
-import caeser
+import caesar
 
 vk = vk_api.VkApi(token=secret.TOKEN)
 
@@ -28,8 +28,8 @@ while True:
                 if body[1] in module.cipher:
                     send(module.cipher_help, id)
                     
-                elif body[1] in module.caeser:
-                    send(module.ceaser_help, id)
+                elif body[1] in module.caesar:
+                    send(module.ceasar_help, id)
                     
                 elif body[1] in module.vigenere:
                     send(module.vigenere_help, id)
@@ -41,20 +41,20 @@ while True:
                 send(module.help_send, id)
                 
                 
-        elif body[0] in module.caeser:
+        elif body[0] in module.caesar:
            if len(body) >  3:
           
                if body[1] in module.cipher:
-                   send(caeser.cipher(body[3:], body[2]), id)
+                   send(caesar.cipher(body[3:], body[2]), id)
                   
                elif body[1] in caeser.decipher:
-                   send(caeser.decipher(body[3:], body[2]), id)
+                   send(caesar.decipher(body[3:], body[2]), id)
                   
                else:
-                   send(module.caeser_help, id)
+                   send(module.caesar_help, id)
                   
            else:
-               send(module.caeser_help, id)
+               send(module.caesar_help, id)
                 
                 
                 
