@@ -1,4 +1,4 @@
-help = ['help', '[tkg', 'gjvjom', 'хелп', 'помощь', 'рудз']
+help_info = ['help', '[tkg', 'gjvjom', 'хелп', 'помощь', 'рудз']
 caesar = ['ceaser', 'wtpfhm', 'цезарь', 'суфыук']
 cipher = ['cipher', 'ibah', 'суфзрук', 'шифр']
 decipher = ['decipher', 'ltibah', 'вусуфзрук', 'дешифр']

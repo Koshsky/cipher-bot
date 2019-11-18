@@ -20,16 +20,16 @@ while True:
     messages = vk.method('messages.getConversations', {'offset': 0, 'count': 20, 'filter': 'unread'})
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
-        body = list(messages['items'][0]['last_message']['text'].lower())
-        
-        if body[0] in module.help:
+        body = list(messages['items'][0]['last_message']['text'].lower().split())
+        print(body)
+        if body[0] in module.help_info:
             if len(body) > 1:
             
                 if body[1] in module.cipher:
                     send(module.cipher_help, id)
                     
                 elif body[1] in module.caesar:
-                    send(module.ceasar_help, id)
+                    send(module.caesar_help, id)
                     
                 elif body[1] in module.vigenere:
                     send(module.vigenere_help, id)
@@ -60,4 +60,3 @@ while True:
                 
         else:
            send(module.send_help, id)
-                
