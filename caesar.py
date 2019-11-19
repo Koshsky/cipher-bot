@@ -1,6 +1,5 @@
 def cipher(string, KEY):
         output = ''
-        print(type(KEY))
         for i in string:
             if i.isalpha():
                 letter = ord(i) + KEY
@@ -49,5 +48,5 @@ def decipher(string, KEY):
             output += chr(letter)
         else:
             output += i
-    return 'Дешифрованный текст: ' + output[0].upper() + output[1:].lower()
+    return 'Дешифрованный текст: ' + output.lower()
 

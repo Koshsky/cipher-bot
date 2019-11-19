@@ -4,7 +4,7 @@ import secret
 import module
 import vk_api
 import random
-import caesar
+import caesar, vigenere
 
 vk = vk_api.VkApi(token=secret.TOKEN)
 
@@ -58,6 +58,20 @@ while True:
                 
         elif body[0] in module.cipher:
             send(module.caesar_help, id)
+
+        elif body[0] in module.vigenere:
+            if len(body) >  3 and (vigenere.lang(body[2]) != 'num' and vigenere.lang(body[2]) != 'mix'):
+                if body[1] in module.cipher:
+                   send(vigenere.cipher(body[3:], body[2]), id)
+                      
+                elif body[1] in module.decipher:
+                   send(vigenere.decipher(body[3:], body[2]), id)
+                      
+                else:
+                   send(module.vigenere_help, id)
+            else:
+                send(module.vigenere_help, id)
+
                 
         else:
            send(module.help_send, id)
