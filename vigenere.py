@@ -64,7 +64,7 @@ def cipher(string, KEY):
                     letter -= len_lang
                 output += chr(letter)
             else:
-                output += i
+                output += string[i]
             count += 1
             i += 1
         else:
@@ -108,7 +108,7 @@ def decipher(string, KEY):
                     
                 output += chr(letter)
             else:
-                output += i
+                output += string[i]
             count += 1
             i += 1
         else:
