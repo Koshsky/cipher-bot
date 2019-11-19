@@ -21,7 +21,6 @@ while True:
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
         body = list(messages['items'][0]['last_message']['text'].lower().split())
-        print(body)
         if body[0] in module.help_info:
             if len(body) > 1:
             
@@ -43,20 +42,22 @@ while True:
                 
         elif body[0] in module.caesar:
            if len(body) >  3:
-          
-               if body[1] in module.cipher:
-                   send(caesar.cipher(body[3:], body[2]), id)
-                  
-               elif body[1] in caeser.decipher:
-                   send(caesar.decipher(body[3:], body[2]), id)
-                  
-               else:
-                   send(module.caesar_help, id)
-                  
+                try:
+                   if body[1] in module.cipher:
+                       send(caesar.cipher(str(body[3:]), int(body[2])), id)
+                      
+                   elif body[1] in module.decipher:
+                       send(caesar.decipher(str(body[3:]), int(body[2])), id)
+                      
+                   else:
+                       send(module.caesar_help, id)
+                except:
+                    send(module.caesar_help, id)
            else:
                send(module.caesar_help, id)
                 
-                
+        elif body[0] in module.cipher:
+            send(module.caesar_help, id)
                 
         else:
-           send(module.send_help, id)
+           send(module.help_send, id)
