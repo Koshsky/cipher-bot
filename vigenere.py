@@ -90,4 +90,4 @@ def decipher(string, KEY):
         else:
             count = 0
             
-    return 'Зашифрованный текст: ' + output.lower()
+    return 'расшифрованный текст: ' + output.lower()
