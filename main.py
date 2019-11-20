@@ -24,26 +24,8 @@ while True:
         body = list(messages['items'][0]['last_message']['text'].lower().split())
         
         if body[0] in module.help_info:
-            
-            if len(body) > 1:
-                if body[1] in module.cipher:
-                    send(module.cipher_help, id)
-                    
-                elif body[1] in module.caesar:
-                    send(module.caesar_help, id)
-                    
-                elif body[1] in module.vigenere:
-                    send(module.vigenere_help, id)
-                    
-                else:
-                    send(module.help_send, id)
-                    
-            else:
-                send(module.help_send, id)
+            send(module.help_send, id)
 
-
-
-                
         elif body[0] in module.caesar:
            if len(body) >  3:
                 try:
