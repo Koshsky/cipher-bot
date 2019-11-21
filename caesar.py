@@ -1,52 +1,50 @@
+import alphabet
+
 def cipher(string, KEY):
+        string = str(''.join(string).lower())
         output = ''
         for i in string:
             if i.isalpha():
-                letter = ord(i) + KEY
-                if 'а' <= i.lower() <= 'я':
-                    lower = 1072 <= letter <= 1103
-                    upper = 1040 <= letter <= 1071
-                    len_lang = 32
-                elif 'a' <= i.lower() <= 'z':
-                    lower = 97 <= letter <= 122
-                    upper = 65 <= letter <= 90
-                    len_lang = 26
-                while not(upper or lower):
-                    letter -= len_lang
-                    if 'а' <= i.lower() <= 'я':
-                        lower = 1072 <= letter <= 1103
-                        upper = 1040 <= letter <= 1071
-                    elif 'a' <= i.lower() <= 'z':
-                        lower = 97 <= letter <= 122
-                        upper = 65 <= letter <= 90
-                output += chr(letter)
+                if alphabet.lang(i) == 'rus':
+                    letter = alphabet.rus[i] + KEY
+                    if letter > 33:
+                        output += chr(alphabet.rus[letter - 33])
+
+                    else:
+                        output += chr(alphabet.rus[letter])
+
+                elif alphabet.lang(i) == 'eng':
+                    letter = alphabet.eng[i] + KEY
+                    if letter > 26:
+                        output += chr(alphabet.eng[letter - 26])
+
+                    else:
+                        output += chr(alphabet.eng[letter])
             else:
                 output += i
-        return 'Зашифрованный текст: ' + output.lower()
+        return output.lower()
 
 def decipher(string, KEY):
-    output = ''
-    for i in string:
-        if i.isalpha():
-            letter = ord(i) - KEY
-            if 'а' <= i.lower() <= 'я':
-                lower = 1072 <= letter <= 1103
-                upper = 1040 <= letter <= 1071
-                len_lang = 32
-            elif 'a' <= i.lower() <= 'z':
-                lower = 97 <= letter <= 122
-                upper = 65 <= letter <= 90
-                len_lang = 26
-            while not(upper or lower):
-                letter += len_lang
-                if 'а' <= i.lower() <= 'я':
-                    lower = 1072 <= letter <= 1103
-                    upper = 1040 <= letter <= 1071
-                elif 'a' <= i.lower() <= 'z':
-                    lower = 97 <= letter <= 122
-                    upper = 65 <= letter <= 90
-            output += chr(letter)
-        else:
-            output += i
-    return 'Дешифрованный текст: ' + output.lower()
+        string = str(''.join(string).lower())
+        output = ''
+        for i in string:
+            if i.isalpha():
+                if alphabet.lang(i) == 'rus':
+                    letter = alphabet.rus[i] - KEY
+                    if letter < 1:
+                        output += chr(alphabet.rus[letter + 33])
+
+                    else:
+                        output += chr(alphabet.rus[letter])
+
+                elif alphabet.lang(i) == 'eng':
+                    letter = alphabet.eng[i] + KEY
+                    if letter < 1:
+                        output += chr(alphabet.eng[letter + 26])
+
+                    else:
+                        output += chr(alphabet.eng[letter])
+            else:
+                output += i
+        return output.lower()
 

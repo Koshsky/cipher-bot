@@ -4,7 +4,7 @@ import secret
 import module, alphabet
 import vk_api
 import random
-import caesar, vigenere
+import caesar, vigenere, morse
 
 vk = vk_api.VkApi(token=secret.TOKEN)
 
@@ -21,12 +21,8 @@ while True:
     
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
-        body = list(messages['items'][0]['last_message']['text'].lower().split())
-        
-        if body[0] in module.help_info:
-            send(module.help_send, id)
-
-        elif body[0] in module.caesar:
+        body = list(messages['items'][0]['last_message']['text'].lower().split())                
+        if body[0] in module.caesar:
            if len(body) >  3:
                 try:
                    if body[1] in module.cipher:
@@ -60,6 +56,12 @@ while True:
                    
             else:
                 send(module.vigenere_help, id)
-                
+
+
+        elif body[0] in module.morse:
+            if len(body) > 1:
+                send(morse.cipher(body[1:]), id)
+            else:
+                send(module.morse_help, id)
         else:
            send(module.help_send, id)
