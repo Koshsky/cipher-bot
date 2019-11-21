@@ -1,5 +1,5 @@
 help_info = ['help', '[tkg', 'gjvjom', 'хелп', 'помощь', 'рудз', 'помоги']
-caesar = ['ceaser', 'wtpfhm', 'цезарь', 'суфыук']
+caesar = ['caesar', 'wtpfhm', 'цезарь', 'сфуыфк']
 cipher = ['cipher', 'ibah', 'суфзрук', 'шифр', 'шифры', 'шифровка', 'зашифровать']
 decipher = ['decipher', 'ltibah', 'вусуфзрук', 'дешифр', 'расшифровка', 'расшифровать']
 vigenere = ['vigenere', 'db;tyth', 'мшпутуку', 'виженер']
