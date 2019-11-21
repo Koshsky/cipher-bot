@@ -21,7 +21,8 @@ while True:
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
         body = messages['items'][0]['last_message']['text']  # текст сообщения
-        body = list(str(body.lower()).split())            
+        body = list(str(body.lower()).split()) 
+        print(len(body), '\t', body)
         if body[0] in module.caesar:
            if len(body) >  3:
                 try:
