@@ -18,10 +18,10 @@ def send(text, id):
     
 while True:
     messages = vk.method('messages.getConversations', {'offset': 0, 'count': 20, 'filter': 'unread'})
-    
     if messages['count'] > 0:
         id = messages['items'][0]['last_message']['from_id']
-        body = list(messages['items'][0]['last_message']['text'].lower().split())                
+        body = messages['items'][0]['last_message']['text']  # текст сообщения
+        body = list(str(body.lower()).split())            
         if body[0] in module.caesar:
            if len(body) >  3:
                 try:
